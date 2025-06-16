@@ -1,5 +1,6 @@
 from typing import Annotated
 from fastapi import FastAPI, Header
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from class_types.anime import Anime
 from class_types.genres import Genre
@@ -10,6 +11,17 @@ import os
 
 app = FastAPI()
 load_dotenv(dotenv_path="../authentication/.env")
+
+origin = [
+    "http://localhost:4200"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origin,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
