@@ -1,3 +1,6 @@
+from typing import Annotated
+from fastapi import FastAPI, Header
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from dotenv import load_dotenv
 from api_responses.user_resp import user_anime_refinement
@@ -7,6 +10,17 @@ import os
 
 app = FastAPI()
 load_dotenv(dotenv_path="../authentication/.env")
+
+origin = [
+    "http://localhost:4200"
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origin,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
