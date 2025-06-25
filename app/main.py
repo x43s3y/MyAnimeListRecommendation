@@ -1,9 +1,8 @@
 from typing import Annotated
 from fastapi import FastAPI, Header
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI
 from dotenv import load_dotenv
-from class_types.anime import Anime
-from class_types.genres import Genre
 from api_responses.user_resp import user_anime_refinement
 from api_responses.all_anime_resp import all_anime_refinement
 import httpx
@@ -33,9 +32,9 @@ if not CLIENT_SECRET:
     raise RuntimeError("CLIENT_SECRET is not set in environment variables")
 
 API_ENDPOINT = "https://api.myanimelist.net/v2/"
-user = "x43s3y" #CHANGE TO INPUT FROM FE
+user = "simeon02" #CHANGE TO INPUT FROM FE
 ALL_ANIME_ENDPOINT = f"{API_ENDPOINT}anime/ranking?ranking_type=all&limit=500&fields=mean,genres"
-USER_ANIME_ENDPOINT = f"{API_ENDPOINT}users/{user}/animelist?fields=list_status&nsfw=true&limit=1000"
+USER_ANIME_ENDPOINT = f"{API_ENDPOINT}users/{user}/animelist?fields=list_status,mean,genres&nsfw=true&limit=1000"
 
 headers = {
     'X-MAL-CLIENT-ID': CLIENT_ID
