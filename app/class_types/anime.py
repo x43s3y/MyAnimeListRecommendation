@@ -9,4 +9,4 @@ class Anime(BaseModel):
     icon: Optional[str] = None
 
     def __repr__(self):
-        return f"Anime({self.title} - {self.mean} - {self.genres})"
+        return f"Anime({self.title} - {self.mean} - {self.genre_list})"

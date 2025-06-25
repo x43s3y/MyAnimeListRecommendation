@@ -1,8 +1,5 @@
-from typing import Annotated
-from fastapi import FastAPI, Header
+from fastapi import FastAPI
 from dotenv import load_dotenv
-from class_types.anime import Anime
-from class_types.genres import Genre
 from api_responses.user_resp import user_anime_refinement
 from api_responses.all_anime_resp import all_anime_refinement
 import httpx
