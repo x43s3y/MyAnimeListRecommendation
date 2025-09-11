@@ -57,8 +57,9 @@ async def user_genres_resp(nickname: str | None):
         return sorting_on_genre(response)
     
 @app.get("/user-anime")
-async def user_anime_resp():
+async def user_anime_resp(nickname: str | None):
     async with httpx.AsyncClient() as client:
+        USER_ANIME_ENDPOINT = f"{API_ENDPOINT}users/{nickname}/animelist?fields=list_status,mean,genres&nsfw=true&limit=1000"
         response = await client.get(USER_ANIME_ENDPOINT, headers=headers)
         response.raise_for_status()
         excluded_status = []
