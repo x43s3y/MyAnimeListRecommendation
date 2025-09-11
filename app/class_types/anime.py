@@ -1,5 +1,5 @@
 from typing import Optional
-from class_types import genres
+from app.class_types import genres
 from pydantic import BaseModel
 
 class Anime(BaseModel):
