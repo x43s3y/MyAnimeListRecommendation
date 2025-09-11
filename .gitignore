@@ -5,10 +5,6 @@ __pycache__/
 *$py.class
 
 # --- Virtual environments (Windows & common names) ---
-/Lib/
-/Scripts/
-/Include/
-pyvenv.cfg
 .venv/
 venv/
 env/
