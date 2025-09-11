@@ -1,3 +1,25 @@
+# --- Python bytecode/caches (anywhere) ---
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environments (Windows & common names) ---
+/Lib/
+/Scripts/
+/Include/
+pyvenv.cfg
+.venv/
 venv/
-app/__pycache__
+env/
+
+# --- Tools/IDE ---
+.vscode/
+*.code-workspace
+.idea/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
 authentication/
