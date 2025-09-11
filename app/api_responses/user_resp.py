@@ -1,6 +1,7 @@
+from app import utils
+
+
 def user_anime_refinement(response, excluded_status: list):
-    resp = []
-    for anime in response.json()["data"]:
-        if anime["list_status"]["status"] not in excluded_status:
-            resp.append(anime)
-    return resp
+    raw_anime_data = response.json()["data"]
+    all_animes = utils.defining_animes(raw_anime_data)
+    return all_animes
